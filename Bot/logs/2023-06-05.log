@@ -1,0 +1,41 @@
+[2023-06-05 02:12:43] [WARNING]: 恢复会话失败: exchange_emp failed: 16 , 尝试使用正常流程登录. 
+[2023-06-05 02:12:51] [WARNING]: 登录需要滑条验证码, 请验证后重试. 
+[2023-06-05 02:12:51] [WARNING]: 请选择提交滑块ticket方式: 
+[2023-06-05 02:12:51] [WARNING]: 1. 自动提交 
+[2023-06-05 02:12:51] [WARNING]: 2. 手动抓取提交 
+[2023-06-05 02:12:51] [WARNING]: 请输入(1 - 2)： 
+[2023-06-05 02:12:56] [WARNING]: 请前往该地址验证 -> https://captcha.go-cqhttp.org/captcha?id=lBNko9KE&style=simple&aid=16&uin=1916572776&sid=6335419321287496738&cap_cd=i_1gznUxVYs5xKENyKve_JNJA4cVpg4-M9zEKDtByERWt1Y92tdPVA**&clientype=1&apptype=2  
+[2023-06-05 02:13:49] [WARNING]: 登录失败: 当前QQ版本过低，请升级至最新版本后再登录。点击进入下载页面 Code: 235 
+[2023-06-05 02:13:49] [WARNING]: 设备信息被封禁, 请删除 device.json 后重试. 
+[2023-06-05 02:14:30] [WARNING]: 虚拟设备信息不存在, 将自动生成随机设备. 
+[2023-06-05 02:14:47] [WARNING]: 登录需要滑条验证码, 请验证后重试. 
+[2023-06-05 02:14:47] [WARNING]: 请选择提交滑块ticket方式: 
+[2023-06-05 02:14:47] [WARNING]: 1. 自动提交 
+[2023-06-05 02:14:47] [WARNING]: 2. 手动抓取提交 
+[2023-06-05 02:14:47] [WARNING]: 请输入(1 - 2)： 
+[2023-06-05 02:14:50] [WARNING]: 请前往该地址验证 -> https://captcha.go-cqhttp.org/captcha?id=BQPScaWz&style=simple&aid=16&uin=1916572776&sid=4475361417381074070&cap_cd=wmOo_MeQy2PvvWKGufHnTqLh_Fncui9-H2ujoTsAFF2yswbrvPlcEA**&clientype=1&apptype=2  
+[2023-06-05 02:16:54] [ERROR]: Protocol -> unexpected disconnect: read tcp 192.168.1.120:62033->36.155.163.117:14000: wsarecv: An established connection was aborted by the software in your host machine. 
+[2023-06-05 02:16:54] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10005 
+[2023-06-05 02:17:09] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10005 
+[2023-06-05 02:17:26] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-06-05 02:17:26] [WARNING]: 你的账号涉嫌违规被限制在非常用设备登录, 请在手机QQ登录并根据提示完成认证 
+[2023-06-05 02:17:26] [WARNING]: 或使用 -update-protocol 升级到最新协议后重试 
+[2023-06-05 02:18:33] [WARNING]: 登录需要滑条验证码, 请验证后重试. 
+[2023-06-05 02:18:33] [WARNING]: 请选择提交滑块ticket方式: 
+[2023-06-05 02:18:33] [WARNING]: 1. 自动提交 
+[2023-06-05 02:18:33] [WARNING]: 2. 手动抓取提交 
+[2023-06-05 02:18:33] [WARNING]: 请输入(1 - 2)： 
+[2023-06-05 02:18:36] [WARNING]: 请前往该地址验证 -> https://ssl.captcha.qq.com/template/wireless_mqq_captcha.html?style=simple&aid=16&uin=1916572776&sid=4593527035824756088&cap_cd=2-dOobxTAApph8Dm7f5mNiGJx_8XxPZcv6rwERunqX1zVC_2fKQJLQ**&clientype=1&apptype=2  
+[2023-06-05 02:18:36] [WARNING]: 请输入ticket： (Enter 提交) 
+[2023-06-05 02:19:20] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-06-05 02:19:20] [WARNING]: 你的账号涉嫌违规被限制在非常用设备登录, 请在手机QQ登录并根据提示完成认证 
+[2023-06-05 02:19:20] [WARNING]: 或使用 -update-protocol 升级到最新协议后重试 
+[2023-06-05 02:19:41] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-06-05 02:19:41] [WARNING]: 你的账号涉嫌违规被限制在非常用设备登录, 请在手机QQ登录并根据提示完成认证 
+[2023-06-05 02:19:41] [WARNING]: 或使用 -update-protocol 升级到最新协议后重试 
+[2023-06-05 02:20:05] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-06-05 02:20:21] [WARNING]: 监听反向WS Universal时出现错误: read tcp 127.0.0.1:62428->127.0.0.1:9960: wsarecv: An existing connection was forcibly closed by the remote host. 
+[2023-06-05 02:20:26] [WARNING]: 向反向WS Universal服务器推送 Event 时出现错误: write tcp 127.0.0.1:62428->127.0.0.1:9960: use of closed network connection 
+[2023-06-05 13:02:14] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-06-05 13:03:14] [WARNING]: 监听反向WS Universal时出现错误: read tcp 127.0.0.1:64834->127.0.0.1:9960: wsarecv: An existing connection was forcibly closed by the remote host. 
+[2023-06-05 13:03:16] [WARNING]: 向反向WS Universal服务器推送 Event 时出现错误: write tcp 127.0.0.1:64834->127.0.0.1:9960: wsasend: An existing connection was forcibly closed by the remote host. 

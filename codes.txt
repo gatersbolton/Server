@@ -1,0 +1,3 @@
+screen -R gocq 创建screen名叫gocq
+screen -r gocq 回到gocq的screen
+Ctrl+A+D 退出screen
