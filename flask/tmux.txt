@@ -1,0 +1,3 @@
+tmux list-windows
+tmux rename-window 新窗口名称
+tmux select-window -t [窗口编号]
