@@ -2,6 +2,7 @@ import sqlite3
 
 #用sqlite3进行一些数据库操作
 class sql:
+    #shuaige
     sqlfile='cczu.db'#数据库的名字
     # 参数全是字符串
     # 几个数据表：
