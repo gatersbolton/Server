@@ -11,10 +11,10 @@ class libspider:
     session=requests.Session()
     seat_hash = [0, 12551,12552,12553,12554,12555,12556,13363,13364,12560,12561,12562,12563,12564,12565,13365,13366,12569,12570,12571,16751,12573,12574,13367,13368,13369,13370,12584,12623,12659,12695,12624,12660,12696,12627,12663,12699,13355,13356,13357,13358,13359,13360,12632,12668,12704,12635,12671,12707,12636,12672,12708,12639,16760,12711,12640,12676,16757,12643,12679,12715,12644,12680,12716,16756,12683,12719,12648,12684,12720,12615,12651,12687,12723,12759,12795,12616,12652,12688,12724,12760,12796,12848,12884,12849,12885,12852,12888,12853,12889,12856,12892,12857,12893,12860,12896,12861,12897,12990,13026,12991,13027,12994,13030,12995,13031,12998,13034,12999,13035,13002,13038,13003,13039,13006,13042,13007,13043,13393,13236,13394,13395,13396,13373,13397,13392,13398,13245,13399,13390,13400,13379,13401,13382,13402,13253,13403,13385,13404,13258,13405,13388,]
     usernames = ['20440225', '2100160322', '20440217']
-    passwords = ['Amelia,520', '20030126Wxc', 'Scr1028scr']
+    passwords = ['123123123', '20030126Wxc', 'Scr1028scr']
     weekday_str = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-    def __init__(self,user=1,username='',password='',test=False):
+    def __init__(self,user=-1,username='',password='',test=False):
         libspider.session=requests.Session()
         if user >= 0 :
             username=libspider.usernames[user]
@@ -87,6 +87,7 @@ class libspider:
         # print(st)
 
     def book(self,date='today',starttime=18.5,duration=4.0,seat=1,test=False):
+        print('booking',date,starttime,duration,seat)
         log='预约成功！'
         endtime=starttime+duration
         #判断周六
@@ -159,7 +160,22 @@ class libspider:
         log, date, starttime, duration, seat, cancelable = self.Cancel(True)
         newspider=libspider(user)
         newspider.book(date,starttime,duration,seat)
-    def Cancel(self,realcancel=True,test=False):
+    def BookStatus(self):
+        log, date, start_time, duration,seat,cancelable=self.Cancelornot(realcancel=False)
+        st=str(int(start_time))+':'+str(int((start_time-int(start_time))*60))
+        start_time=start_time+duration
+        et=str(int(start_time))+':'+str(int((start_time-int(start_time))*60))
+        if date == 'today':date='今天'
+        else: date='明天'
+        if cancelable:
+            log='当前预约：'+date+st+'-'+et+'座位号'+str(seat)
+        else:
+            log='当前没有预约。'
+        return log
+    def Cancel(self):
+        log, date, start_time, duration,seat,cancelable=self.Cancelornot(realcancel=True)
+        return log
+    def Cancelornot(self,realcancel=True,test=False):
         log=""
         i6 = libspider.session.get(
             url="https://zmvpn.cczu.edu.cn/http/webvpnd56e8ad031c0cd86860fe6de4f1464605e734b8b4eef67fef791aba5330c6934/history?type=SEAT",
@@ -209,9 +225,9 @@ class libspider:
             )
             if test:
                 print(i7.text)
-        cancelable=True
-        if (result and realcancel) or (not result): cancelable=False
-        if cancelable: log="取消成功！"
+        cancelable=False
+        if result and realcancel: log="取消成功！"
+        if result and not realcancel: cancelable=True
         return log, date, start_time, duration,seat,cancelable
 
 # library.py -t 18.5 -d 0 -s 2 -a 0
