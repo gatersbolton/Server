@@ -46,12 +46,12 @@ def post_handler():
     xml_str = request.stream.read()
     msg = parse_message(xml_str)
     if msg.type == 'text':
+        wechat_id=str(msg.source)
         content=str(msg.content)
-        reply = create_reply(wechat_reply.handle(content), msg)
+        reply = create_reply(wechat_reply.handle(wechat_id=wechat_id,content=content), msg)
     else:
         reply = create_reply('不支持该消息类型!', msg)
     return reply.render()
-
 def ReplyText(toUser,fromUser,nowtime,MsgType,content):
     XmlForm = f"""
         <xml>
