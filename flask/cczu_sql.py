@@ -59,18 +59,19 @@ class sql:
         c = conn.cursor()
 
         # 查询 preference 表
-        c.execute("SELECT floor, starttime, duration FROM users WHERE wechat_id=?", (wechat_id,))
+        c.execute("SELECT floor, seat, starttime, duration FROM users WHERE wechat_id=?", (wechat_id,))
         result = c.fetchone()
         conn.close()
         # 处理结果
         if result is not None:
-            floor, starttime, duration = result
+            floor, seat, starttime, duration = result
         else:
+            seat = '1'
             floor = 'none';
-            starttime = 8.0;
-            duration = 4.0;
+            starttime = '18.0';
+            duration = '4.0';
 
-        return wechat_id, floor, starttime, duration
+        return seat, floor, starttime, duration
 
     # 查wechat_id对应的preference表，返回
         # return wechat_id,floor,seat,starttime,duration
@@ -82,8 +83,8 @@ class sql:
         c = conn.cursor()
 
         # 修改 preference 表
-        c.execute("UPDATE users SET floor=?, starttime=?, duration=? WHERE wechat_id=?",
-                  (floor, starttime, duration, wechat_id))
+        c.execute("UPDATE users SET floor=?, seat=?, starttime=?, duration=? WHERE wechat_id=?",
+                  (floor, seat, starttime, duration, wechat_id))
         conn.commit()
         conn.close()
         # 修改preference表里的对应项
@@ -109,15 +110,18 @@ class sql:
 if __name__ == '__main__':
     cczusql = sql()
     cczusql.initsql()
-    wechat_id='1234567890abcdefgg'
-    username, password = cczusql.auto_login(wechat_id=wechat_id)
+    print(cczusql.getpreference('123456'))
+    # cczusql.select_all()
+    wechat_id='123456'
+    cczusql.setpreference(wechat_id=wechat_id,seat='18',starttime='18.5',duration='3')
+    # username, password = cczusql.auto_login(wechat_id=wechat_id)
 
-    cczusql.del_by_wechatid(wechat_id=wechat_id)
+    # cczusql.del_by_wechatid(wechat_id=wechat_id)
     # if (username == 'none'):
     #     username = '12345678'
     #     password = '123456'
     #     cczusql.bind(wechat_id=wechat_id, username=username, password=password)
 
     # os.remove(cczusql.sqlfile)
-    print(username, password)
+    # print(username, password)
     print(cczusql.select_all())
