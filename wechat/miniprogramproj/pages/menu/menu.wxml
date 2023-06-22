@@ -1,0 +1,54 @@
+<view class="v1">
+
+<image class='logo' src = "/images/cczu.png" mode = "widthFix"></image>
+ <text class = 'title'>图书馆预约系统</text>
+
+
+<view class="form-group">
+  <text class="label">校区：</text>
+  <radio-group>
+    <label class="radio-label">
+      <radio value="wujin" checked="{{true}}" bindchange="onCampusChange"/> 武进校区
+    </label>
+    <label class="radio-label">
+      <radio value="xitaihu" bindchange="onCampusChange"/> 西太湖校区
+    </label>
+  </radio-group>
+</view>
+
+
+<view class="form-group">
+  <view class="label">楼层：</view>
+  <picker mode="selector" range="{{floors}}" value="{{floorIndex}}" bindchange="onFloorChange">
+    <view class="picker content">{{floors[floorIndex]}}</view>
+  </picker>
+</view>
+
+<view class="form-group">
+  <view class="label">座位号：</view>
+  <input type="number" class="input content" placeholder="请输入座位号" value="{{seat}}" bindinput="onSeatInput"/>
+  <view class="underline"></view>
+</view>
+
+<view class="form-group">
+  <view class="label">开始时间:</view>
+  <picker mode="selector" range="{{startTimes}}" value="{{startTimeIndex}}" bindchange="onStartTimeChange">
+    <view class="picker content">{{startTimes[startTimeIndex]}}</view>
+  </picker>
+</view>
+
+<view class="form-group">
+  <view class="label">持续时间:</view>
+  <picker mode="selector" range="{{durations}}" value="{{durationIndex}}" bindchange="onStartTimeChange">
+    <view class="picker content">{{durations[durationIndex]}}</view>
+  </picker>
+</view>
+
+
+
+
+<view class="form-buttons">
+  <button class="btn" type="primary" bindtap="onSubmit">预约</button>
+  <button class="btn" type="default" bindtap="onCancel">取消</button>
+</view>
+</view>

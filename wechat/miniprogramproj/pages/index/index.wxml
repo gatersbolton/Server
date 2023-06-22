@@ -1,0 +1,24 @@
+<view class="v1">
+ <image class='logo' src = "/images/cczu.png" mode = "widthFix"></image>
+ <text class = 'title'>图书馆预约系统</text>
+
+ <view class="v2">
+    <view class="inputType">学号：
+        <input  class="inputValue" placeholder="请输入学号" bindinput="bindUsernameInput" type="digit" />
+    </view>
+    <text decode>&nbsp;</text>
+    <view class="inputType">密码：
+        <input class="inputValue" type="{{ passwordInputHidden ? 'password' : 'text' }}" placeholder="请输入密码" bindinput="bindPasswordInput" />
+        <image src='{{passwordInputHidden ? "/images/open_eye.png": "/images/colse_eye.png"}}' class='imageStyle' bindtap='togglePasswordInput' mode="aspectFill"></image>
+    </view>
+    <text decode>&nbsp;</text>
+    
+</view>
+     <!-- 登录按钮 -->
+<view class="btn">
+  <button class="btn_login" bindtap="login"type="primary">登录</button>
+ <button class="btn_cancel" type="warn">取消</button>
+</view>
+
+ </view>
+  
