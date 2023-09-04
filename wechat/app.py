@@ -50,7 +50,7 @@ def post_handler():
         content=str(msg.content)
         reply = create_reply(wechat_reply.handle(wechat_id=wechat_id,content=content), msg)
     else:
-        reply = create_reply('不支持该消息类型!', msg)
+        reply = create_reply('你好!欢迎来到常州大学小助手！', msg)
     return reply.render()
 def ReplyText(toUser,fromUser,nowtime,MsgType,content):
     XmlForm = f"""

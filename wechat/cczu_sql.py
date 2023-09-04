@@ -4,6 +4,7 @@ import sqlite3
 class sql:
     sqlfile = 'cczu.db'  # 数据库的名字
     def __init__(self):
+        self.initsql()
         pass
     # 参数全是字符串
     # 几个数据表：
@@ -22,6 +23,7 @@ class sql:
                         wechat_id TEXT PRIMARY KEY NOT NULL,
                         username TEXT NOT NULL,
                         password TEXT NOT NULL,
+                        campus TEXT NOT NULL,
                         seat TEXT,
                         floor TEXT,
                         starttime TEXT,
@@ -44,16 +46,25 @@ class sql:
             password = 'none';
         return username, password
 
-    def bind(self, wechat_id, username, password):
+    def bind(self, wechat_id, username, password, campus):
         """添加 (wechat_id, username, password) 到 users 表，并添加对应的偏好表项，初值全是字符串的 'none'"""
         # 连接到数据库
         conn = sqlite3.connect(self.sqlfile)
         c = conn.cursor()
         # 添加用户信息到 users 表
-        c.execute("INSERT INTO users (wechat_id, username, password, seat, floor, starttime, duration) VALUES (?, ?, ?, ?, ?, ? ,?)", (wechat_id, username, password, 'none', 'none', 'none', 'none'))
+        c.execute("INSERT INTO users (wechat_id, username, password,campus, seat, floor, starttime, duration) VALUES (?, ?, ?, ?, ?, ?, ? ,?)", (wechat_id, username, password,campus, 'none', 'none', 'none', 'none'))
         conn.commit()
         conn.close()
+    def getcampus(self,wechat_id):
+        conn = sqlite3.connect(self.sqlfile)
+        c = conn.cursor()
 
+        # 查询 preference 表
+        c.execute("SELECT campus FROM users WHERE wechat_id=?", (wechat_id,))
+        result = c.fetchone()
+        conn.close()
+        campus=type(result)
+        return campus
     def getpreference(self, wechat_id):
         conn = sqlite3.connect(self.sqlfile)
         c = conn.cursor()
@@ -113,7 +124,9 @@ if __name__ == '__main__':
     print(cczusql.getpreference('123456'))
     # cczusql.select_all()
     wechat_id='123456'
-    cczusql.setpreference(wechat_id=wechat_id,seat='18',starttime='18.5',duration='3')
+    # cczusql.bind(wechat_id=wechat_id,username='123123',password='abcabc',campus='xth')
+    # cczusql.setpreference(wechat_id=wechat_id,seat='18',starttime='18.5',duration='3')
+    print(cczusql.getcampus('123456'))
     # username, password = cczusql.auto_login(wechat_id=wechat_id)
 
     # cczusql.del_by_wechatid(wechat_id=wechat_id)

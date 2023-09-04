@@ -10,19 +10,27 @@ def handle(wechat_id,content):
     输入“取消预约”，取消最近的预约
     输入“预约状态”，查看预约状态
     输入“快速预约”，按照上一次进行预约
-    输入“绑定 [帐号] [密码]”，如“绑定 20440225 123456”，绑定教务系统帐号
+    输入“绑定 [帐号] [密码] [校区]”，如“绑定 20440225 123456 西太湖”，绑定教务系统帐号
     输入“解绑”，解除绑定
     '''
     cczusql = cczu_sql.sql()
-    username, password = cczusql.auto_login(wechat_id=wechat_id)
+    try:
+        username, password = cczusql.auto_login(wechat_id=wechat_id)
+    except:
+        username='none'
     if '解绑' in content:
         cczusql.del_by_wechatid(wechat_id=wechat_id)
         response='解绑成功！'
     elif '绑定' in content:
         username=content.split()[1]
         password=content.split()[2]
-        cczusql.bind(wechat_id=wechat_id,username=username,password=password)
-        response='绑定成功！'
+        campus=content.split()[3]
+        if username=='superuser':
+            response='管理员测试帐号'
+            username=backupusername
+            password=backuppassword
+        cczusql.bind(wechat_id=wechat_id,username=username,password=password,campus=campus)
+        response=response+'绑定成功！'
     else:
         if username=='none' and ('预约' in content or '取消' in content):
             response='您还没没有绑定教务系统，请绑定'

@@ -1,3 +1,9 @@
 tmux list-windows
 tmux rename-window 新窗口名称
 tmux select-window -t [窗口编号]
+tmux rename -t 旧会话名或会话ID 新会话名或会话ID
+tmux kill-session -t 会话名或会话ID
+ps -ef 查看所有进程
+nohup 退出不中止
+systemctl start nginx
+systemctl reload nginx
